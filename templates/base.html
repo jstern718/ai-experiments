@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+
+    <link rel="stylesheet"
+            href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.css">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+
+    <link rel="stylesheet"
+            href="https://www.unpkg.com/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    </head>
+
+    <body>
+      <div class="border-div">
+        <div class="title-div">
+            <h2>ChatBot App</h2>
+        </div>
+        <div>
+            <h4>{{ question }}</h4>
+            <div >
+                <form method="POST" id="message_form" class="row-div">
+                    <div class="textForm">
+                        {% for field in form %}
+                        {{ field(placeholder=field.label.text, class="form-control") }}
+                        {% endfor %}
+                    </div>
+                    <button class="btn btn-primary btn-lg buttonForm">Send message!</button>
+                </form>
+
+             </div>
+
+
+        </div>
+        <br/>
+        <div>
+            <h4>ChatBot's Response: </h4>
+            <!-- <div class="chat-box">
+                <p class="response">{{ message }}<p>
+            </div> -->
+            <div class="chat-box">
+                <ul>
+                    {% for item in message %}
+                    <li>{{ item }} - {{ message[item] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+      </div>
+    </body>
+</html>
